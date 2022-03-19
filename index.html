@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hitung Mundur</title>
+</head>
+
+<body>
+  <main>
+    <header>
+      <section>
+        <label for="inputHours">Jam</label>
+        <input type="number" id="inputHours" name="input-hours" placeholder="inputHours" min="0" max="23" value="0">
+      </section>
+      <section>
+        <label for="inputMinutes">Menit:</label>
+        <input type="number" id="inputMinutes" name="input-minutes" placeholder="inputMinutes" min="0" max="59"
+          value="0">
+      </section>
+      <section>
+        <label for="inputSeconds">Detik:</label>
+        <input type="number" id="inputSeconds" name="input-seconds" placeholder="inputSeconds" min="0" max="59"
+          value="0">
+      </section>
+      <button type="submit" id="btnSubmit">Simpan</button>
+    </header>
+    <section>
+      <div id="hours">00</div>
+      <div id="minutes">00</div>
+      <div id="seconds">00</div>
+    </section>
+  </main>
+
+  <script src="script.js" defer></script>
+</body>
+
+</html>
