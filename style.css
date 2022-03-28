@@ -96,6 +96,10 @@ body {
   transition: ease-in-out 0.2s;
 }
 
+.btn-submit:disabled {
+  background-color: #a78bfa;
+}
+
 .btn-reset {
   background-color: #fcd34d;
 }
