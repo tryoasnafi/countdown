@@ -1,6 +1,7 @@
 const inputHoursEl = document.getElementById('inputHours')
 const inputMinutesEl = document.getElementById('inputMinutes')
 const inputSecondsEl = document.getElementById('inputSeconds')
+const btnSubmitEl = document.getElementById('btnSubmit')
 const btnResetEl = document.getElementById('btnReset')
 
 let counter = null
@@ -37,6 +38,7 @@ const startCounter = (time) => {
 const resetCounter = () => {
   clearInterval(counter)
 
+  btnSubmitEl.removeAttribute('disabled')
   inputHoursEl.removeAttribute('disabled')
   inputMinutesEl.removeAttribute('disabled')
   inputSecondsEl.removeAttribute('disabled')
@@ -61,6 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
     e.preventDefault()
     addTimer()
     submitFormTimer.reset()
+    btnSubmitEl.setAttribute('disabled', '')
   })
 })
 
