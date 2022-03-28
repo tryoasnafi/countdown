@@ -6,32 +6,34 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hitung Mundur</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <main>
-    <header>
-      <section>
-        <label for="inputHours">Jam</label>
-        <input type="number" id="inputHours" name="input-hours" placeholder="inputHours" min="0" max="23" value="0">
-      </section>
-      <section>
-        <label for="inputMinutes">Menit:</label>
-        <input type="number" id="inputMinutes" name="input-minutes" placeholder="inputMinutes" min="0" max="59"
-          value="0">
-      </section>
-      <section>
-        <label for="inputSeconds">Detik:</label>
-        <input type="number" id="inputSeconds" name="input-seconds" placeholder="inputSeconds" min="0" max="59"
-          value="0">
-      </section>
-      <button type="submit" id="btnSubmit">Simpan</button>
+  <main class="container">
+    <header class="main__header">
+      <h2 class="header__title text-center">Hitung Mundur</h2>
+      <form id="formTimer" action="">
+        <div class="countdown-timer text-center">
+          <section class="input__group">
+            <label class="input__label" for="inputHours">Jam</label>
+            <input class="big-text" type="number" id="inputHours" name="input-hours" min="0" max="23" value="00">
+          </section>
+          <section class="input__group">
+            <label class="input__label" for="inputMinutes">Menit</label>
+            <input class="big-text" type="number" id="inputMinutes" name="input-minutes" min="0" max="59" value="00">
+          </section>
+          <section class="input__group">
+            <label class="input__label" for="inputSeconds">Detik</label>
+            <input class="big-text" type="number" id="inputSeconds" name="input-seconds" min="0" max="59" value="00">
+          </section>
+        </div>
+        <section class="button__group text-center">
+          <button class="btn-submit" type="submit" id="btnSubmit">Mulai</button>
+          <button class="btn-reset" type="reset" id="btnReset">Reset</button>
+        </section>
+      </form>
     </header>
-    <section>
-      <div id="hours">00</div>
-      <div id="minutes">00</div>
-      <div id="seconds">00</div>
-    </section>
   </main>
 
   <script src="script.js" defer></script>
