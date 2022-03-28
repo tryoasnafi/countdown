@@ -1,11 +1,7 @@
-const hourCounterEl = document.getElementById('hours')
-const minuteCounterEl = document.getElementById('minutes')
-const secondCounterEl = document.getElementById('seconds')
 const inputHoursEl = document.getElementById('inputHours')
 const inputMinutesEl = document.getElementById('inputMinutes')
 const inputSecondsEl = document.getElementById('inputSeconds')
-
-let isTimerSet = false
+const btnResetEl = document.getElementById('btnReset')
 
 let counter = null
 
@@ -31,7 +27,7 @@ const startCounter = (time) => {
     inputSecondsEl.value = s < 10 ? `0${s}` : s
 
     if (diff <= 0) {
-      clearInterval(counter)
+      resetCounter()
       alert("Selesai, waktu habis!")
     }
 
@@ -39,7 +35,6 @@ const startCounter = (time) => {
 }
 
 const resetCounter = () => {
-  isTimerSet = false
   clearInterval(counter)
 
   inputHoursEl.removeAttribute('disabled')
@@ -69,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
   })
 })
 
-document.getElementById('btnReset').addEventListener('click', () => {
+btnResetEl.addEventListener('click', () => {
   resetCounter()
 })
 
