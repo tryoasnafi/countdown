@@ -8,6 +8,20 @@ let counter = null
 
 const getMilliseconds = (hours, minutes, seconds) => (hours * 60 * 60) + (minutes * 60) + seconds
 
+const clearDisabledElements = () => {
+  btnSubmitEl.removeAttribute('disabled')
+  inputHoursEl.removeAttribute('disabled')
+  inputMinutesEl.removeAttribute('disabled')
+  inputSecondsEl.removeAttribute('disabled')
+}
+
+const disabledElements = () => {
+  btnSubmitEl.setAttribute('disabled', '')
+  inputHoursEl.setAttribute('disabled', '')
+  inputMinutesEl.setAttribute('disabled', '')
+  inputSecondsEl.setAttribute('disabled', '')
+}
+
 const startCounter = (time) => {
   counter = setInterval(() => {
     const currentTime = Math.ceil(+new Date() / 1000)
@@ -16,12 +30,6 @@ const startCounter = (time) => {
     const h = Math.floor(diff / 60 / 60) % 24
     const m = Math.floor(diff / 60) % 60
     const s = diff % 60
-
-    console.log(diff)
-
-    inputHoursEl.setAttribute('disabled', '')
-    inputMinutesEl.setAttribute('disabled', '')
-    inputSecondsEl.setAttribute('disabled', '')
 
     inputHoursEl.value = h < 10 ? `0${h}` : h
     inputMinutesEl.value = m < 10 ? `0${m}` : m
@@ -37,13 +45,8 @@ const startCounter = (time) => {
 
 const resetCounter = () => {
   clearInterval(counter)
-
-  btnSubmitEl.removeAttribute('disabled')
-  inputHoursEl.removeAttribute('disabled')
-  inputMinutesEl.removeAttribute('disabled')
-  inputSecondsEl.removeAttribute('disabled')
+  clearDisabledElements()
 }
-
 
 const addTimer = () => {
   const hours = +inputHoursEl.value
@@ -55,6 +58,7 @@ const addTimer = () => {
   const time = Math.ceil(+new Date() / 1000) + getMilliseconds(hours, minutes, seconds)
 
   startCounter(time)
+  disabledElements()
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -63,7 +67,6 @@ document.addEventListener('DOMContentLoaded', () => {
     e.preventDefault()
     addTimer()
     submitFormTimer.reset()
-    btnSubmitEl.setAttribute('disabled', '')
   })
 })
 
